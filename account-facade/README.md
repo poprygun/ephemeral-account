@@ -1,0 +1,1 @@
+cf set-env facade TRUST_CERTS api.cfapps.io

@@ -1,0 +1,5 @@
+---
+applications:
+- name: account-signature
+  memory: 1G
+  path: target/account-0.0.1-SNAPSHOT.jar
