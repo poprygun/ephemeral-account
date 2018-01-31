@@ -30,7 +30,7 @@ public class AccountApplication {
 
 			.scanClasspathForConcreteTypes(false)
 			.overrideDefaultInitialization(false)
-			.build();;
+			.build();
 
 	public static void main(String[] args) {
 		SpringApplication.run(AccountApplication.class, args);
@@ -40,6 +40,7 @@ public class AccountApplication {
 	public ResponseEntity<List<Account>> getAccounts(@RequestParam String cif) {
 		Account[] accounts = random.random(Account[].class);
 		Arrays.stream(accounts).forEach(account -> account.setCif(cif));
+		Arrays.stream(accounts).forEach(account -> account.setDescription("from signature"));
 		return new ResponseEntity<>(Arrays.asList(accounts), HttpStatus.OK);
 	}
 

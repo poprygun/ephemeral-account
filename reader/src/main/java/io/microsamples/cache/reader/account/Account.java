@@ -20,6 +20,8 @@ public class Account {
 
     private String cif;
 
+    private String description = "from cache";
+
     @Builder
     public Account(String cif) {
         this();

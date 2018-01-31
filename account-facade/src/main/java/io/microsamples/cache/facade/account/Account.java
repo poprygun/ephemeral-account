@@ -16,5 +16,7 @@ public class Account {
     private UUID id;
 
     private String cif;
+
+    private String description;
 }
 
