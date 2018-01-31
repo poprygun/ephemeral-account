@@ -4,10 +4,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.UUID;
+
 @Data
 @Builder
 @ToString
 public class Account {
-    private String id;
+    private UUID id;
     private String cif;
 }
