@@ -8,6 +8,7 @@ while true; do sleep 1; curl -I -X GET 'https://facade.cfapps.io/accounts?cif=xy
 ```
 
 ### Optionally report circuit breaker status to dashboard
+
 ```bash
 cf create-service p-circuit-breaker-dashboard standard circuit-breaker-dashboard
 cf bind-service facade circuit-breaker-dashboard
