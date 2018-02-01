@@ -5,3 +5,5 @@ docker inspect -f "{{ .NetworkSettings.IPAddress }}" redis
 
 spring.profiles.active=redis
 spring.profiles.active=gemfire
+
+cf create-service rediscloud 30mb redis-cache
