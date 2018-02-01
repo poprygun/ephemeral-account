@@ -11,7 +11,7 @@ import org.springframework.data.redis.core.RedisHash;
 import java.util.UUID;
 
 
-//@Region("Accounts")
+@Region("Accounts")
 @RedisHash("Accounts")
 @Getter
 @ToString
