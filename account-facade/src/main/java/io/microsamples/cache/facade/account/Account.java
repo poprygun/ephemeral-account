@@ -7,16 +7,25 @@ import lombok.ToString;
 import java.util.UUID;
 
 
-
-@Builder
 @Getter
 @ToString
 public class Account {
 
-    private UUID id;
+    private String id;
 
     private String cif;
 
     private String description;
+
+    @Builder
+    public Account(String cif, String description) {
+        this();
+        this.cif = cif;
+        this.description = description;
+    }
+
+    public Account() {
+        this.id = UUID.randomUUID().toString();
+    }
 }
 

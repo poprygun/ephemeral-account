@@ -27,7 +27,10 @@
 	</properties>
 
 	<dependencies>
-
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>io.pivotal.spring.cloud</groupId>
 			<artifactId>spring-cloud-services-starter-circuit-breaker</artifactId>

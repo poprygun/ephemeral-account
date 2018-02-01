@@ -1,4 +1,23 @@
 spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+server:
+  port: 8081
+
+---
+
+spring:
+  profiles: rabbit
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: accounts.exchange
+
+---
+
+spring:
   profiles: redis
   redis:
     database: 0
@@ -11,11 +30,6 @@ spring:
         max-wait: -1ms
         max-idle: 8
         min-idle: 0
-  autoconfigure:
-    exclude:
-     - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
-server:
-  port: 8081
 
 ---
 
@@ -25,4 +39,3 @@ spring:
     exclude:
       - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
       - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
-      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration

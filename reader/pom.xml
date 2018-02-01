@@ -27,7 +27,6 @@
 		<rest-assured.version>3.0.5</rest-assured.version>
 	</properties>
 
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -1,0 +1,16 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+
+---
+
+spring:
+  profiles: rabbit
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: accounts.exchange
+          contentType: application/json
+
