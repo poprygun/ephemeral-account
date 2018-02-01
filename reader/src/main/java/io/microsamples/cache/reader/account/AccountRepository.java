@@ -6,6 +6,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.UUID;
 
-public interface AccountRepository extends CrudRepository<Account, UUID>{
+public interface AccountRepository extends CrudRepository<Account, String>{
     List<Account> findByCif(@Param("cif") String cif);
 }

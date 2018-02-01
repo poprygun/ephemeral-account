@@ -3,3 +3,7 @@ applications:
 - name: reader
   memory: 1G
   path: target/reader-0.0.1-SNAPSHOT.jar
+  services:
+    - redis-cache
+  env:
+    SPRING_PROFILES_ACTIVE: redis

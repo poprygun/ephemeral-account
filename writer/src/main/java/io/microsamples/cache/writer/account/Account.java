@@ -20,6 +20,8 @@ public class Account {
     @Id
     private String id;
 
+    @org.springframework.data.gemfire.mapping.Indexed
+    @org.springframework.data.redis.core.index.Indexed
     private String cif;
 
     private String description;

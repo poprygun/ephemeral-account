@@ -12,7 +12,6 @@ import org.springframework.data.gemfire.repository.config.EnableGemfireRepositor
 import java.util.Arrays;
 
 @SpringBootApplication
-@EnableGemfireRepositories
 public class ReaderApplication implements CommandLineRunner{
 
 	@Autowired
