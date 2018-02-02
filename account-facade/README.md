@@ -13,3 +13,10 @@ cf create-service p-circuit-breaker-dashboard standard circuit-breaker-dashboard
 cf bind-service facade circuit-breaker-dashboard
 cf restage facade
 ```
+
+### Configure amqp service
+```bash
+cf create-service cloudamqp lemur account-queue
+cf bind-service facade account-queue
+cf restage facade
+```

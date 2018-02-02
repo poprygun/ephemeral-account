@@ -39,7 +39,9 @@ public class CompositeReadAccountService {
 
         String transactionUrl = signatureServiceUrl.concat("/accounts");
 
-        return getAccounts(cif, transactionUrl, signatureTemplate);
+        List<Account> accounts = getAccounts(cif, transactionUrl, signatureTemplate);
+        //notify cache of most recent account state
+        return accounts;
     }
 
     public List<Account> accountsFromCacheByCif(final String cif) {
@@ -47,8 +49,6 @@ public class CompositeReadAccountService {
         String transactionUrl = cacheServiceUrl.concat("/accounts");
 
         return getAccounts(cif, transactionUrl, accountCacheTemplate);
-
-
     }
 
     private List<Account> getAccounts(String cif, String transactionUrl, RestTemplate toCall) {
