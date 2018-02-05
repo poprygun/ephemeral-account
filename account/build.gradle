@@ -1,0 +1,35 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'io.microsamples.cache.signature'
+version = '0.0.1-SNAPSHOT'
+description = """account"""
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile group: 'io.github.benas', name: 'random-beans', version: '3.7.0'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.9.RELEASE'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
+    testCompile group: 'io.rest-assured', name: 'spring-mock-mvc', version: '3.0.5'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.5.9.RELEASE') {
+        exclude(module: 'commons-logging')
+    }
+}
