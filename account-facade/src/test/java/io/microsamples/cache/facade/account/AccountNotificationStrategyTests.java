@@ -30,7 +30,7 @@ public class AccountNotificationStrategyTests {
         compositeReadAccountService.findByCif("cif");
 
 
-        verify(accountNotificationStrategy, times(1)).notify(any(List.class));
+        verify(accountNotificationStrategy, times(1)).notify(any(Account.class));
     }
 
 }

@@ -6,6 +6,8 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Profile;
 
+import java.util.List;
+
 @EnableBinding(Sink.class)
 @Profile("rabbit")
 @Slf4j
@@ -18,6 +20,7 @@ public class AccountProcessor {
     }
 
     @StreamListener(target=Sink.INPUT)
+    //note: it is Stream Data limitation not being able to consume List<Account> https://github.com/spring-cloud/spring-cloud-stream/issues/726
     public void cacheAccount(Account account) {
         Account saved = accountRepository.save(account);
         log.info("Cached account ---> {}", saved);

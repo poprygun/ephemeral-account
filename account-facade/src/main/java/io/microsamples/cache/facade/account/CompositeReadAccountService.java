@@ -40,7 +40,9 @@ public class CompositeReadAccountService {
     public List<Account> findByCif(final String cif) {
         String transactionUrl = signatureServiceUrl.concat("/accounts");
         List<Account> accounts = getAccounts(cif, transactionUrl, signatureTemplate);
-        accountNotificationStrategy.notify(accounts);
+        for(Account account : accounts) {
+            accountNotificationStrategy.notify(account);
+        }
         return accounts;
     }
 

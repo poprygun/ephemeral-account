@@ -8,7 +8,7 @@ import java.util.List;
 public class NoopAccountStateNotificationStrategy implements AccountNotificationStrategy {
 
     @Override
-    public void notify(List<Account> accounts) {
+    public void notify(Account account) {
         log.info("Using " + NoopAccountStateNotificationStrategy.class + ", doing nothing");
     }
 }

@@ -16,9 +16,9 @@ public class AmqpAccountStateNotificationStrategy implements AccountNotification
     }
 
     @Override
-    public void notify(List<Account> accounts) {
-        accountQueueSource.output().send(MessageBuilder.withPayload(accounts).build());
-        log.debug("Notified AMQP about the accounts read");
+    public void notify(Account account) {
+        accountQueueSource.output().send(MessageBuilder.withPayload(account).build());
+        log.info("Notified AMQP about the accounts read");
     }
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface AccountNotificationStrategy {
 
-    void notify(List<Account> accounts);
+    //note: it is Stream Data limitation not being able to consume List<Account> https://github.com/spring-cloud/spring-cloud-stream/issues/726
+    void notify(Account account);
 
 }
