@@ -13,18 +13,20 @@ import java.util.List;
 @Service
 public class CompositeReadAccountService {
 
-    @Autowired
     private RestTemplate signatureTemplate;
-
-    @Autowired
     private RestTemplate accountCacheTemplate;
-
-    @Value("${account.cache.reader:https://reader.cfapps.io}")
+    private AccountNotificationStrategy accountNotificationStrategy;
     private String cacheServiceUrl;
-
-    @Value("${account.signature.service:https://account-signature.cfapps.io}")
     private String signatureServiceUrl;
 
+    public CompositeReadAccountService(String signatureServiceUrl, RestTemplate signatureRestTemplate,
+               String cacheServiceUrl, RestTemplate cacheRestTemplate, AccountNotificationStrategy accountNotificationStrategy) {
+        this.signatureServiceUrl = signatureServiceUrl;
+        this.signatureTemplate = signatureRestTemplate;
+        this.cacheServiceUrl = cacheServiceUrl;
+        this.accountCacheTemplate = cacheRestTemplate;
+        this.accountNotificationStrategy = accountNotificationStrategy;
+    }
 
     public void setSignatureTemplate(RestTemplate signatureTemplate) {
         this.signatureTemplate = signatureTemplate;
@@ -36,11 +38,11 @@ public class CompositeReadAccountService {
 
     @HystrixCommand(fallbackMethod = "accountsFromCacheByCif")
     public List<Account> findByCif(final String cif) {
-
         String transactionUrl = signatureServiceUrl.concat("/accounts");
-
         List<Account> accounts = getAccounts(cif, transactionUrl, signatureTemplate);
-        //notify cache of most recent account state
+        for (Account account : accounts) {
+            accountNotificationStrategy.notify(account);
+        }
         return accounts;
     }
 

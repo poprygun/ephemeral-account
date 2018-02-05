@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
         AccountNotificationStrategyConfig.class
 })
 @RunWith(SpringRunner.class)
-public class AccountStateNotificationStrategyTests {
+public abstract class AccountStateNotificationStrategyTests {
 
     @Autowired
     protected AccountNotificationStrategy accountNotificationStrategy;
