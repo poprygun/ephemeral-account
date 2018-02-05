@@ -1,5 +1,9 @@
 package io.microsamples.cache.facade.account;
 
+import java.util.List;
+
 public interface AccountNotificationStrategy {
-    void notify(Account account);
+
+    void notify(List<Account> accounts);
+
 }

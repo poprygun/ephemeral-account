@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.eq;
@@ -28,7 +30,7 @@ public class AccountNotificationStrategyTests {
         compositeReadAccountService.findByCif("cif");
 
 
-        verify(accountNotificationStrategy, times(1)).notify(any(Account.class));
+        verify(accountNotificationStrategy, times(1)).notify(any(List.class));
     }
 
 }

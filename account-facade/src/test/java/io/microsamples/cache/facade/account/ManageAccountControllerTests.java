@@ -17,6 +17,7 @@ import static org.mockito.Mockito.verify;
 
 public class ManageAccountControllerTests {
 
+/*
     @Test
     public void shouldNotifyOfAccountCreation() {
 
@@ -43,4 +44,6 @@ public class ManageAccountControllerTests {
 
         verify(mockMessageChannel, times(1)).send(anyObject());
     }
+*/
+
 }

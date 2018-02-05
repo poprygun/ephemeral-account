@@ -10,8 +10,6 @@ import java.util.List;
 
 @RestController
 public class CompositeReadAccountController {
-
-
     private CompositeReadAccountService compositeReadAccountService;
 
     public CompositeReadAccountController(CompositeReadAccountService compositeReadAccountService) {
