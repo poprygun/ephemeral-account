@@ -14,9 +14,9 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
-group = 'io.microsamples.cache.signature'
+group = 'io.microsamples.cache'
 version = '0.0.1-SNAPSHOT'
-description = """account"""
+description = """account-facade"""
 sourceCompatibility = 1.8
 
 repositories {
@@ -25,11 +25,13 @@ repositories {
 
 
 dependencies {
-    compile group: 'io.github.benas', name: 'random-beans', version: '3.7.0'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-stream-rabbit', version:'1.2.1.RELEASE'
+    compile group: 'io.pivotal.spring.cloud', name: 'spring-cloud-services-starter-circuit-breaker', version:'1.4.1.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
-    testCompile group: 'io.rest-assured', name: 'spring-mock-mvc', version: '3.0.5'
+    compile group: 'org.projectlombok', name: 'lombok', version:'1.16.18'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
     testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test') {
         exclude(module: 'commons-logging')
     }
+    testCompile group: 'io.rest-assured', name: 'spring-mock-mvc', version:'3.0.5'
 }
